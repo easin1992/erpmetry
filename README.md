@@ -23,7 +23,7 @@
 </p>  
 <h3 align="center">Home Page</h3>  
 
-![Home Page](./images/home_page_copy.png)
+![Home Page](https://github.com/easin1992/erpmetry/blob/15197d20e0fb60137c7da79c022d0dcaffa31bcd/home_page_copy.png)
 
 1. This module handles the core configuration and administrative settings of the ERP system.
 2. Manages all employee-related data and processes across the organization.
