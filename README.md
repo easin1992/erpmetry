@@ -5,7 +5,7 @@
 
 
 <p align="center">
-  <img src="./images/./loging_p.png" alt="Login Page" />
+  <img src="https://github.com/easin1992/erpmetry/blob/551d02ea17eebc699cd515bbbfef4d669bb8ad06/loging_p.png" />
 </p>
 
 
