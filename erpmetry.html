@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ERPmetry — User Manual (Basic)</title>
+  <style>
+    /* Basic, readable styles for new developers */
+    body { font-family: Arial, Helvetica, sans-serif; line-height: 1.6; margin: 20px; color: #222; }
+    header { margin-bottom: 20px; }
+    h1 { margin: 0 0 10px 0; }
+    nav { margin: 10px 0 20px 0; }
+    nav a { display: inline-block; margin-right: 12px; text-decoration: none; color: #0066cc; }
+    section { margin-bottom: 18px; padding: 12px; border: 1px solid #ddd; border-radius: 6px; background: #fafafa; }
+    ul { margin: 8px 0 0 20px; }
+    ol { margin: 8px 0 0 20px; }
+    footer { margin-top: 20px; font-size: 0.9em; color: #555; }
+    .note { background: #fffbe6; padding: 8px; border-left: 4px solid #f0c040; }
+    code.kbd { background: #eee; padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ERPmetry — User Manual</h1>
+    <p>Simple, clear documentation designed for new developers and end users. This version uses basic HTML so it's easy to read and edit.</p>
+  </header>
+     <img src="./home_page_copy.png" alt="ERPmetry Logo" style="max-width: 1000px; margin-bottom: 20px;"> 
+  <nav>
+    <strong>Sections:</strong>
+    <a href="#overview">Overview</a>
+    <a href="#setup">Setup</a>
+    <a href="#modules">Modules</a>
+    <a href="#admin">Administration</a>
+    <a href="#help">Help</a>
+  </nav>
+
+  <main>
+    <section id="overview">
+      <h2>Overview</h2>
+      <p>ERPmetry is a full-featured ERP system built by our company for spinning mills in Bangladesh. It supports production, inventory, sales, finance and HR workflows. This manual explains how to use the system and how developers can extend it.</p>
+      <div class="note"><strong>Note:</strong> This plain HTML manual is intended for easy reading and editing by new developers.</div>
+    </section>
+
+    <section id="setup">
+      <h2>Setup & Access</h2>
+      <ol>
+        <li>Open the ERPmetry web URL given by your IT team.</li>
+        <li>Sign in with your username and password.</li>
+        <li>If you forget your password, use the "Forgot Password" link or contact support.</li>
+      </ol>
+      <p>Shortcut tip: Press <code class="kbd">Ctrl</code> + <code class="kbd">K</code> for quick search (if enabled).</p>
+    </section>
+
+    <section id="modules">
+      <h2>Modules</h2>
+      <p>The main modules in ERPmetry are:</p>
+      <ul>
+        <li><strong>HR</strong> — Employee records, schedules, payroll basics.</li>
+        <li><strong>Production</strong> — Lot/shift entry, machine output, waste tracking.</li>
+        <li><strong>Inventory</strong> — Goods receipt (GRN), stock ledger, lot tracking.</li>
+        <li><strong>Sales</strong> — Orders, delivery orders (DO), invoices, challans.</li>
+        <li><strong>Finance</strong> — Chart of accounts, vouchers, payments, reports.</li>
+      </ul>
+    </section>
+
+    <section id="admin">
+      <h2>Administration</h2>
+      <p>Common admin tasks:</p>
+      <ul>
+        <li>Create user accounts and assign roles.</li>
+        <li>Configure company settings: units, tax rates, print templates.</li>
+        <li>View audit logs to see who changed records and when.</li>
+      </ul>
+    </section>
+
+    <section id="help">
+      <h2>Help & Support</h2>
+      <p>If you need help, contact the support team:</p>
+      <p>Email: <a href="mailto:support@erpmetry.example">support@erpmetry.example</a><br>Phone: +880-XXX-XXXXXXX</p>
+      <h3>FAQ</h3>
+      <p><strong>Q:</strong> I cannot log in.<br><strong>A:</strong> Check that Caps Lock is off, confirm your username, and try resetting your password.</p>
+      <p><strong>Q:</strong> Where are reports?<br><strong>A:</strong> Go to the Reports section from the main menu and select the report category you need.</p>
+    </section>
+
+    <footer>
+      <p>Version 1.0 — Last updated: August 2025</p>
+      <p>&copy; <span id="year"></span> ERPmetry</p>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

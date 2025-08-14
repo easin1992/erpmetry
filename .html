@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ERPmetry — Complete User Manual (Template)</title>
+  <style>
+    /* ===== THEME ===== */
+    :root{
+      --bg:#0f172a;           /* dark slate */
+      --panel:#0b1226;        /* cards */
+      --ink:#e2e8f0;          /* text */
+      --muted:#94a3b8;        /* secondary */
+      --brand:#22d3ee;        /* cyan */
+      --accent:#a78bfa;       /* violet */
+      --border:rgba(255,255,255,.08);
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    [data-theme="light"]{
+      --bg:#f8fafc; --panel:#ffffff; --ink:#0b1226; --muted:#475569; --border:rgba(15,23,42,.1);
+      --shadow:0 10px 30px rgba(2,6,23,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; background:var(--bg); color:var(--ink)}
+
+    /* ===== LAYOUT ===== */
+    .app{display:grid; grid-template-columns:280px 1fr; min-height:100vh}
+    aside{background:linear-gradient(180deg, rgba(34,211,238,.12), transparent 25%), linear-gradient(180deg, rgba(167,139,250,.10), transparent 55%), var(--panel); border-right:1px solid var(--border);}
+    header.topbar{position:sticky; top:0; z-index:50; display:flex; gap:12px; align-items:center; justify-content:space-between; padding:14px 18px; background:linear-gradient(90deg, var(--brand), var(--accent)); color:#0a0a0a; box-shadow:var(--shadow)}
+    .brand{display:flex; align-items:center; gap:10px}
+    .logo{width:40px; height:40px; display:grid; place-items:center; border-radius:12px; background:#0b1226; color:#22d3ee; font-weight:900}
+    .brand h1{margin:0; font-size:1.25rem}
+
+    .toolbar{display:flex; gap:8px; align-items:center}
+    .btn{border:1px solid var(--border); background:var(--panel); color:var(--ink); padding:6px 10px; border-radius:10px; cursor:pointer}
+    .btn.primary{background:linear-gradient(90deg,var(--brand),var(--accent)); color:#0a0a0a; border:0}
+
+    .sidebar{padding:16px}
+    .search{display:flex; gap:8px}
+    .search input{width:100%; padding:10px 12px; border-radius:10px; background:var(--panel); color:var(--ink); border:1px solid var(--border)}
+
+    .toc{margin-top:12px; max-height:calc(100vh - 170px); overflow:auto; padding-right:6px}
+    .toc h3{margin:10px 0 6px; font-size:.9rem; color:var(--muted)}
+    .toc a{display:block; padding:8px 10px; border-radius:10px; text-decoration:none; color:var(--ink); border:1px solid transparent}
+    .toc a:hover{border-color:var(--brand)}
+    .toc .sub{padding-left:14px}
+
+    main{padding:24px;}
+    .content{max-width:980px; margin:0 auto}
+    section.card{background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:20px; margin:14px 0; box-shadow:var(--shadow)}
+    h2{margin:0 0 10px; font-size:1.25rem}
+    h3{margin:14px 0 8px; font-size:1.05rem}
+    p{margin:8px 0}
+    ul{margin:8px 0 8px 22px}
+
+    footer{margin:36px 0 10px; color:var(--muted); font-size:.9rem}
+
+    .note{padding:10px; border-left:4px solid var(--brand); background:rgba(34,211,238,.08); border-radius:10px}
+    .kbd{font-family:ui-monospace,Menlo,Consolas,monospace; background:rgba(255,255,255,.08); padding:.15rem .45rem; border-radius:.4rem; border:1px solid var(--border)}
+
+    /* mobile */
+    @media (max-width: 900px){ .app{grid-template-columns:1fr} aside{display:none} }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">EM</div>
+      <h1>ERPmetry — User Manual</h1>
+    </div>
+    <div class="toolbar">
+      <button class="btn" id="toggleTheme" title="Toggle theme">Theme</button>
+      <button class="btn" onclick="window.print()" title="Print or save as PDF">Print</button>
+      <a class="btn primary" href="#getting-started">Start</a>
+    </div>
+  </header>
+
+  <div class="app">
+    <aside>
+      <div class="sidebar">
+        <div class="search">
+          <input id="search" type="search" placeholder="Search sections…" />
+        </div>
+        <nav class="toc" id="toc">
+          <h3>Introduction</h3>
+          <a href="#intro">Overview</a>
+          <a href="#uniqueness" class="sub">Why unique for spinning mills</a>
+          <a href="#requirements" class="sub">System requirements</a>
+          <h3>Setup</h3>
+          <a href="#access">Access & Login</a>
+          <a href="#navigation" class="sub">Global navigation</a>
+          <h3>Modules</h3>
+          <a href="#module-hr">HR</a>
+          <a href="#module-production">Production</a>
+          <a href="#module-inventory">Inventory</a>
+          <a href="#module-sales">Sales</a>
+          <a href="#module-finance">Finance</a>
+          <a href="#reports">Reports & Analytics</a>
+          <h3>Administration</h3>
+          <a href="#settings">Settings</a>
+          <a href="#security" class="sub">Users & Roles</a>
+          <a href="#audit" class="sub">Audit & Logs</a>
+          <h3>Help</h3>
+          <a href="#faq">FAQ</a>
+          <a href="#support">Support</a>
+          <a href="#glossary">Glossary</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main>
+      <div class="content">
+        <!-- Intro -->
+        <section id="intro" class="card">
+          <h2>Overview</h2>
+          <p>
+            We are creating the <strong>ERPmetry</strong> application user manual. ERPmetry is a comprehensive, fully functional ERP solution designed and built by our company. It is tailored for the spinning mill industry in Bangladesh, where such systems are still uncommon. Our company built it end‑to‑end, and users are happy to have a platform like this supporting daily operations.
+          </p>
+          <div class="note"><strong>Note:</strong> This document is an all‑in‑one HTML manual you can print to PDF or split into separate pages later.</div>
+        </section>
+
+        <section id="uniqueness" class="card">
+          <h2>Why it’s unique for spinning mills</h2>
+          <ul>
+            <li>Industry‑specific workflows: bale to yarn, lot tracking, waste handling.</li>
+            <li>Bangladesh localization: documents, units, taxes, and reports familiar to local teams.</li>
+            <li>Real‑time dashboards and KPIs across production, stock, and sales.</li>
+            <li>Offline‑tolerant data entry patterns for unstable connectivity.</li>
+          </ul>
+        </section>
+
+        <section id="requirements" class="card">
+          <h2>System requirements</h2>
+          <ul>
+            <li>Modern browser (Chrome, Edge, Firefox, Safari) updated in the last 12 months.</li>
+            <li>Recommended screen ≥ 1366×768, best at 1600×900 or more.</li>
+            <li>Stable network connection; VPN if required by your company.</li>
+            <li>Authorized user account with assigned role.</li>
+          </ul>
+        </section>
+
+        <!-- Setup -->
+        <section id="access" class="card">
+          <h2>Access & Login</h2>
+          <ol>
+            <li>Open the ERPmetry URL provided by IT.</li>
+            <li>Enter your <em>Username</em> and <em>Password</em>.</li>
+            <li>Click <strong>Sign In</strong>. If you forget your password, use <em>Forgot Password</em> or contact IT.</li>
+          </ol>
+          <p>Tip: Use <span class="kbd">Ctrl</span> + <span class="kbd">K</span> to open quick search (if enabled).</p>
+        </section>
+
+        <section id="navigation" class="card">
+          <h2>Global navigation</h2>
+          <ul>
+            <li><strong>Top Bar:</strong> breadcrumbs, profile, notifications.</li>
+            <li><strong>Side Menu:</strong> modules and sub‑menus.</li>
+            <li><strong>Footer:</strong> version and environment label (Test/Prod).</li>
+          </ul>
+        </section>
+
+        <!-- Modules -->
+        <section id="module-hr" class="card">
+          <h2>HR Module</h2>
+          <h3>Employee Information</h3>
+          <p>Create new employee → fill personal & job info → save. Use search to edit existing employees.</p>
+          <h3>Worker Scheduling</h3>
+          <p>Define off‑day schedules and deductions. Export to CSV for audits.</p>
+        </section>
+
+        <section id="module-production" class="card">
+          <h2>Production Module</h2>
+          <h3>Lot & Shift Entry</h3>
+          <p>Record shift output, waste, and quality metrics. Use batch numbers for traceability.</p>
+          <h3>KPI Cards</h3>
+          <p>Monitor total output, efficiency, and downtime trends.</p>
+        </section>
+
+        <section id="module-inventory" class="card">
+          <h2>Inventory Module</h2>
+          <h3>Goods Receipt (GRN)</h3>
+          <p>Scan or select PO → verify quantities → post to stock.</p>
+          <h3>Stock Ledger</h3>
+          <p>Real‑time in/out with filters by item, lot, and warehouse.</p>
+        </section>
+
+        <section id="module-sales" class="card">
+          <h2>Sales Module</h2>
+          <h3>Delivery Orders & Challans</h3>
+          <p>Create DOs, print challans, track delivered vs pending quantities.</p>
+          <h3>Invoices</h3>
+          <p>Generate tax‑compliant invoices with audit trail.</p>
+        </section>
+
+        <section id="module-finance" class="card">
+          <h2>Finance Module</h2>
+          <ul>
+            <li>Chart of Accounts, vouchers, payments, receipts.</li>
+            <li>Integration with inventory and sales for COGS and revenue.</li>
+          </ul>
+        </section>
+
+        <section id="reports" class="card">
+          <h2>Reports & Analytics</h2>
+          <p>Standard reports (production, stock, sales), plus custom dashboards.</p>
+        </section>
+
+        <!-- Admin -->
+        <section id="settings" class="card">
+          <h2>Settings</h2>
+          <ul>
+            <li>Company profile, units, tax rules, numbering formats.</li>
+            <li>Document templates (print & PDF).</li>
+          </ul>
+        </section>
+
+        <section id="security" class="card">
+          <h2>Users & Roles</h2>
+          <p>Create roles → assign permissions → add users → map to roles. Use 2FA if enabled.</p>
+        </section>
+
+        <section id="audit" class="card">
+          <h2>Audit & Logs</h2>
+          <p>Every critical change is tracked with who/when/what. Use filters to review revisions.</p>
+        </section>
+
+        <!-- Help -->
+        <section id="faq" class="card">
+          <h2>FAQ</h2>
+          <p><strong>Q:</strong> I can’t login? <strong>A:</strong> Check caps lock, reset password, or contact IT.</p>
+          <p><strong>Q:</strong> Where are my reports? <strong>A:</strong> Go to <em>Reports & Analytics</em> from the side menu.</p>
+        </section>
+
+        <section id="support" class="card">
+          <h2>Support</h2>
+          <p>Email: <a href="mailto:support@erpmetry.example">support@erpmetry.example</a> · Phone: +880-XXX‑XXXXXXX</p>
+        </section>
+
+        <section id="glossary" class="card">
+          <h2>Glossary</h2>
+          <ul>
+            <li><strong>DO:</strong> Delivery Order.</li>
+            <li><strong>GRN:</strong> Goods Receipt Note.</li>
+            <li><strong>COGS:</strong> Cost of Goods Sold.</li>
+          </ul>
+        </section>
+
+        <footer>
+          <p><strong>Version:</strong> 1.0 · <strong>Last updated:</strong> August 2025</p>
+          <p>&copy; <span id="year"></span> ERPmetry. All rights reserved.</p>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Theme toggle
+    document.getElementById('toggleTheme').addEventListener('click', () => {
+      const html = document.documentElement;
+      html.setAttribute('data-theme', html.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+    });
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple in‑page search: filters TOC links and scrolls to the first match
+    const search = document.getElementById('search');
+    const toc = document.getElementById('toc');
+    const links = [...toc.querySelectorAll('a')];
+    search.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      let firstMatch = null;
+      links.forEach(a => {
+        const hit = a.textContent.toLowerCase().includes(q);
+        a.style.display = hit ? 'block' : (q ? 'none' : 'block');
+        if(hit && !firstMatch) firstMatch = a;
+      });
+      if(firstMatch && q.length > 1){
+        const id = firstMatch.getAttribute('href');
+        const el = document.querySelector(id);
+        if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    });
+
+    // Smooth anchor scrolling for all in‑page links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        const el = document.querySelector(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+
+    // Print styles (auto applied by browser when printing)
+    const style = document.createElement('style');
+    style.media = 'print';
+    style.textContent = `
+      aside, .topbar .btn.primary { display:none !important; }
+      .app{ grid-template-columns:1fr !important; }
+      main{ padding:0 !important; }
+      section.card{ break-inside: avoid; box-shadow:none; border-color:#ddd; }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
+
